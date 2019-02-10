@@ -1,0 +1,17 @@
+sudo: required
+
+services: 
+  - docker
+
+before_install:
+  - docker build -t jeustace/test-travis-frontend -f ./frontend/Dockerfile.dev ./frontend
+
+script:
+  - docker run jeustace/test-travis-frontend npm test-travis
+
+after_success:
+  - docker build -t jeustace/test-travis-frontend ./frontend
+  # login to docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push jeustace/test-travis
+  

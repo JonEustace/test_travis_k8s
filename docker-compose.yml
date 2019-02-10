@@ -1,0 +1,14 @@
+version: '3'
+services:
+  webapp:
+    build:
+      context: ./frontend
+      dockerfile: 'Dockerfile.dev'
+    ports:
+       - "3000:3000"
+  api:
+    build:
+      context: ./backend
+      dockerfile: 'Dockerfile.dev'
+    ports:
+      - "8080:8080"

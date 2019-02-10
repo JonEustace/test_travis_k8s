@@ -1,0 +1,6 @@
+FROM node:alpine
+WORKDIR /app
+COPY ./node_modules /app/
+CMD ["npm", "start"]
+COPY . .
+
