@@ -13,5 +13,5 @@ after_success:
   - docker build -t jeustace/test-travis-frontend ./frontend
   # login to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push jeustace/test-travis
+  - docker push jeustace/test-travis-frontend
   
